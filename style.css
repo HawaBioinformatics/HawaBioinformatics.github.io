@@ -1,35 +1,307 @@
+/* ===== Base Reset ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f7fb;
-    color: #1f2d3d;
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #2f2f2f;
+  background-color: #ffffff;
+  line-height: 1.7;
+}
+
+/* ===== Links ===== */
+a {
+  color: #2c6db2;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  color: #1d4f85;
+  text-decoration: underline;
+}
+
+/* ===== Top Navigation ===== */
+nav,
+.site-nav {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-nav .nav-container,
+nav .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f1f1f;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #444;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #111;
+  text-decoration: none;
+}
+
+/* ===== Overall Page Layout ===== */
+.container,
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+/* ===== Sidebar / Profile Card ===== */
+.sidebar,
+.author-sidebar,
+.profile-card {
+  position: sticky;
+  top: 95px;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.profile-card img,
+.author-avatar,
+.profile-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+  border: 1px solid #e5e5e5;
+}
+
+.profile-card h1,
+.profile-card h2,
+.author-name {
+  margin: 0 0 8px;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  color: #1e1e1e;
+}
+
+.profile-card .tagline,
+.author-bio,
+.profile-role {
+  font-size: 0.98rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.profile-meta {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  text-align: left;
+}
+
+.profile-meta li {
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.profile-meta a {
+  color: #2c6db2;
+}
+
+/* ===== Main Content ===== */
+main,
+.content,
+.page-content {
+  min-width: 0;
+}
+
+main h1,
+main h2,
+main h3,
+.content h1,
+.content h2,
+.content h3 {
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+main h1,
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 22px;
+}
+
+main h2,
+.content h2 {
+  font-size: 1.45rem;
+  margin-top: 40px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ececec;
+}
+
+main h3,
+.content h3 {
+  font-size: 1.15rem;
+  margin-top: 28px;
+}
+
+main p,
+main li,
+.content p,
+.content li {
+  font-size: 1rem;
+  color: #333;
+}
+
+main p,
+.content p {
+  margin: 0 0 18px;
+}
+
+.content ul,
+.content ol,
+main ul,
+main ol {
+  padding-left: 22px;
+  margin-bottom: 20px;
+}
+
+/* ===== Buttons / CV / CTA links ===== */
+.button,
+.btn,
+.cv-button {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.button:hover,
+.btn:hover,
+.cv-button:hover {
+  background: #f1f1f1;
+  text-decoration: none;
+  border-color: #c8c8c8;
+}
+
+/* ===== Section Cards (optional) ===== */
+.card,
+.content-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+/* ===== Footer ===== */
+footer,
+.site-footer {
+  border-top: 1px solid #e6e6e6;
+  margin-top: 60px;
+  padding: 24px;
+  font-size: 0.9rem;
+  color: #777;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .container,
+  .page-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-  
-  header {
-    background: #243b6b;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
+
+  .sidebar,
+  .author-sidebar,
+  .profile-card {
+    position: static;
   }
-  
-  main {
-    max-width: 900px;
+
+  .profile-card {
+    max-width: 420px;
     margin: 0 auto;
-    padding: 24px;
   }
-  
-  section {
-    background: white;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  .site-nav .nav-container,
+  nav .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  h1, h2 {
-    margin-top: 0;
+
+  .nav-links {
+    gap: 12px;
   }
-  
-  a {
-    color: #243b6b;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
   }
+
+  .container,
+  .page-wrapper {
+    padding: 24px 16px;
+  }
+
+  .profile-card img,
+  .author-avatar,
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  main h1,
+  .content h1 {
+    font-size: 1.7rem;
+  }
+
+  main h2,
+  .content h2 {
+    font-size: 1.25rem;
+  }
+}
